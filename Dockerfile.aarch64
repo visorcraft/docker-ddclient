@@ -36,7 +36,7 @@ RUN \
   curl -o /tmp/ddclient.zip -L \
     "https://github.com/ddclient/ddclient/archive/refs/heads/master.zip" && \
   unzip /tmp/ddclient.zip -o -d /tmp/ && \
-  /bin/sh /tmp/ddclient-master/autogen && \
+  /tmp/ddclient-master/autogen && \
   ./configure --prefix=/usr --sysconfdir=/etc/ddclient --localstatedir=/var && \
   cd /tmp/ddclient-master/ && \
   make && \
