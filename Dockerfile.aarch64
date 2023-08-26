@@ -14,9 +14,12 @@ RUN \
   apk add --no-cache --virtual=build-dependencies \
     gcc \
     make \
+    autoconf \
+    automake \
     wget && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
+    vim \
     bind-tools \
     inotify-tools \
     perl \
@@ -33,6 +36,12 @@ RUN \
   curl -o /tmp/ddclient.zip -L \
     "https://github.com/ddclient/ddclient/archive/refs/heads/master.zip" && \
   unzip /tmp/ddclient.zip -o -d /tmp/ && \
+  /bin/sh /tmp/ddclient-master/autogen && \
+  ./configure --prefix=/usr --sysconfdir=/etc/ddclient --localstatedir=/var && \
+  cd /tmp/ddclient-master/ && \
+  make && \
+  make VERBOSE=1 check && \
+  make install && \
   cp /tmp/ddclient-master/ddclient.in /usr/bin/ddclient.in && \
   ln -s /usr/bin/ddclient.in /usr/bin/ddclient && \
   mkdir -p /etc/ddclient/ && \
