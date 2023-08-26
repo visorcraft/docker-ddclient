@@ -17,10 +17,7 @@ RUN \
     wget
 
 RUN \
-  apk --no-cache add automake
-
-RUN \
-  apk --no-cache add autoconf
+  apk --no-cache add automake autoconf
 
 RUN \
   echo "**** install runtime packages ****" && \
@@ -50,7 +47,6 @@ RUN \
   make && \
   make VERBOSE=1 check && \
   make install && \
-  cp /tmp/ddclient-master/ddclient.in /usr/bin/ddclient.in && \
   rm /usr/bin/ddclient && \
   ln -s /usr/bin/ddclient.in /usr/bin/ddclient && \
   mkdir -p /etc/ddclient/ && \
