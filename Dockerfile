@@ -14,9 +14,12 @@ RUN \
   apk add --no-cache --virtual=build-dependencies \
     gcc \
     make \
+    autoconf \
+    automake \
     wget && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
+    vim \
     bind-tools \
     inotify-tools \
     perl \
