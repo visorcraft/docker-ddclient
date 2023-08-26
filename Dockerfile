@@ -16,9 +16,9 @@ RUN \
     make \
     wget && \
   apk add --no-cache --virtual=build-dependencies \
-    automake \
+    automake && \
   apk add --no-cache --virtual=build-dependencies \
-    autoconf \
+    autoconf && \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     vim \
