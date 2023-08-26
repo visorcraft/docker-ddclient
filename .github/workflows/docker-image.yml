@@ -29,4 +29,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USER }}/ddclient:latest
+          tags: ${{ secrets.DOCKER_HANDLE }}/ddclient:latest
