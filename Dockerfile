@@ -14,8 +14,15 @@ RUN \
   apk add --no-cache --virtual=build-dependencies \
     gcc \
     make \
-    wget && \
-  apk --no-cache add automake autoconf && \
+    wget
+
+RUN \
+  apk --no-cache add automake
+
+RUN \
+  apk --no-cache add autoconf
+
+RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     vim \
@@ -30,7 +37,9 @@ RUN \
   curl -L http://cpanmin.us | perl - App::cpanminus && \
   cpanm \
     Data::Validate::IP \
-    JSON::Any && \
+    JSON::Any
+
+RUN \    
   echo "**** install ddclient ****" && \
   curl -o /tmp/ddclient.zip -L \
     "https://github.com/ddclient/ddclient/archive/refs/heads/master.zip" && \
