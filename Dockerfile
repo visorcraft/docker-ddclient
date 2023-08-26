@@ -51,6 +51,7 @@ RUN \
   make VERBOSE=1 check && \
   make install && \
   cp /tmp/ddclient-master/ddclient.in /usr/bin/ddclient.in && \
+  rm /usr/bin/ddclient && \
   ln -s /usr/bin/ddclient.in /usr/bin/ddclient && \
   mkdir -p /etc/ddclient/ && \
   cp /tmp/ddclient-master/sample-get-ip-from-fritzbox /etc/ddclient/get-ip-from-fritzbox && \
